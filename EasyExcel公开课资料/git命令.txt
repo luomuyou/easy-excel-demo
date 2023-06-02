@@ -1,0 +1,45 @@
+git add <filename> 将单个文件加入暂存区
+git add . 将全部文件加入暂存区
+git commit -m ‘提交描述’   提交暂存区里的所有文件（只提交暂存区里面的文件）
+
+git reset <filename> 撤销已提交到暂存区的文件
+git reset <提交id> 可以回退到提交前的版本
+[
+参数, --hard 不保存变更（直接回退到上一个版本的初始状态，下一版本的变更内容不存在）
+         --soft 保留变更内容处于staged(相当于修改过后已经add了【git status 是绿色的】)
+         --mixed 保留变更，且变更内容处于Modified(相当于修改过后还没有add)【git status 是红色的】（默认）
+]
+
+
+
+git log  查看详细操作日志
+git reflog 查看简略操作日志
+
+=========================================================
+git init 初始化git生成git仓库
+git status 查看git状态
+git add <filename>添文件到暂存区
+git add .加入所有文件到暂存区
+git commite -m 'message'提交文件到本地仓库
+git reset <filename>将尚没有commite之前加入到暂存区的文件重新拉回
+文件状态：
+1.没有被add过的文件叫untracked
+2.add之后文件处于staged状态等待commite
+3.commit之后文件处于unmodified这里之所以是modified是因为文件会跟仓库中的文件对比
+4.当unmodified的文件被修改则会变为modified状态
+5.modified之后的文件add之后将继续变为staged状态
+6.unmodifed的文件还有一种可能是已经不再需要了，那么可以remove它不再追踪变为untracked状态
+=========================================================
+git checkout -b <name><template>  新建分支
+name是分支的名字，
+template是指以哪个分支为模板开始创建新的分支，不写默认以当前分支为模板创建新的分支
+
+git branch 查看所有分支，高亮带*，代表当前分支
+git checkout <branchName> 切换分支
+
+git merge <branchName> 合并分支变更    是合并分支变更部分，不是合并内容。如果两分支都修改了同一处内容，就会发生合并冲突，需要手动合并
+
+
+
+
+
